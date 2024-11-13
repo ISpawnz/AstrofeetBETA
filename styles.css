@@ -1,0 +1,213 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: hsl(0, 22%, 96%);
+    background-color: #d61c1c;
+    background-image: url('img/fundo geral.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-image: url('img/titulo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: rgb(231, 230, 230);
+    padding: 10px;
+    box-shadow: 0 6px 10px rgba(255, 254, 254, 0.5);
+}
+
+header .logo {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+}
+
+header h1 {
+    font-family: 'Creepster', cursive;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Pushes navigation items to the right */
+}
+
+nav a {
+    margin: 0 15px;
+    color: rgb(245, 245, 247);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+    color: #e0e0e0;
+    transform: scale(1.1);
+}
+
+nav a i {
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    margin: 0 10px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav a i:hover {
+    color: #ebebeb;
+    transform: scale(1.1);
+}
+
+main {
+    padding: 20px;
+}
+
+/* Additional styles remain the same */
+#home {
+    text-align: center;
+    color: white;
+}
+
+#produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 100px;
+}
+
+.produto {
+    width: calc(100% - 10px);
+    max-width: 250px;
+    border: 2px solid #f8f3f3;
+    padding: 20px;
+    background-image: url('img/fundo tenis.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 25px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.produto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.produto img {
+    width: 100%;
+    height: auto;
+    border-radius: 25px;
+}
+
+.carrinho {
+    position: fixed;
+    right: 0;
+    top: 100px;
+    width: 20%;
+    background: url('img/Carrinho.png') no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+    border-radius: 25px;
+    color: white;
+    transition: transform 1s ease-in-out;
+    display: none;
+    z-index: 1000;
+}
+
+#listaCarrinho {
+    list-style-type: none;
+    padding: 0;
+}
+
+#totalCarrinho {
+    margin-top: 10px;
+}
+
+button {
+    background-color: rgb(13, 125, 252);
+    color: #f7f4f4;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #d10c0c;
+    transform: scale(1.05);
+}
+
+#fecharCarrinho {
+    margin-top: 10px;
+}
+
+.controle-quantidade {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.quantidade-btn {
+    background: none;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.quantidade-btn:hover {
+    color: #ffcc00;
+}
+
+.lixeira-btn {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.lixeira-btn:hover {
+    color: darkred;
+}
+
+.oculto {
+    display: none;
+}
+
+.filtro-lateral {
+    width: 250px;
+    background-color: #444;
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+    height: fit-content;
+}
+
+.filtro-container h3 {
+    margin-top: 0;
+    color: rgb(226, 223, 217);
+}
+
+.filtro-container label,
+.filtro-container select,
+.filtro-container input,
+.filtro-container button {
+    display: block;
+    margin: 10px 0;
+    width: 100%;
+    padding: 5px;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Tenis - Astrofeetbr</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+</head>
+
+<body>
+    <header>
+        <img src="img/logo.png" alt="logoAs HTML5">
+        <h1>Astrofeetbr</h1>
+        <nav>
+            <a href="#" id="homeBtn">Home</a>
+            <a href="#" id="produtosBtn">Produtos</a>
+            <a href="https://www.instagram.com/astrofeetbr/?igsh=cTg4emNydjNrc2to" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/553183024952" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="#" id="carrinhoBtn">
+                <i class="fas fa-shopping-cart"></i> Carrinho
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h2>Bem-vindo à Astrofeetbr</h2>
+            <p></p>
+        </section>
+
+        <section id="produtos" class="oculto">
+            <div id="filtros-produtos" class="filtro-lateral">
+                <div class="filtro-container">
+                    <h3>Filtrar Produtos</h3>
+                    <label for="categoria">Categoria:</label>
+                    <select id="categoria">
+                        <option value="todas">Todas as categorias</option>
+                        <option value="Nike">Nike</option>
+                        <option value="Adidas">Adidas</option>
+                    </select>
+                    <label for="preco-maximo">Preço máximo:</label>
+                    <input type="number" id="preco-maximo" placeholder="Digite o valor">
+                    <button onclick="filtrarProdutos()">Aplicar Filtro</button>
+                </div>
+            </div>
+            
+                </div>
+                <div class="produto" id="produto2" data-categoria="Adidas">
+                    <img src="img/tenis1.png"tenis da Adidas">
+                    <h3>Tênis Adidas</h3>
+                    <p>Descrição: Confortável e durável.</p>
+                    <p>Preço: R$ 150,00</p>
+                    <button onclick="adicionarAoCarrinho('Tênis Adidas', 150)">Adicionar ao Carrinho</button>
+                    <div class="controle-quantidade oculto">
+                        <button class="quantidade-btn" onclick="alterarQuantidade('Tênis Adidas', 170, -1)">-</button>
+                        <span id="quantidade-Tênis Adidas">1</span>
+                        <button class="quantidade-btn" onclick="alterarQuantidade('Tênis Adidas', 170, 1)">+</button>
+                        <button class="lixeira-btn" onclick="removerDoCarrinho('Tênis Adidas')"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+                <div class="produto" id="produto3" data-categoria="Nike">
+                    <img src="img/tinis2.avif"tenis da Adidas">
+                    <h3>Tênis Nike</h3>
+                    <p>Descrição: RRConfortável e durável. </p>
+                    <p>Preço: R$ 190,00</p>
+                    <button onclick="adicionarAoCarrinho('Tênis Adidas', 190)">Adicionar ao Carrinho</button>
+                    <div class="controle-quantidade oculto">
+                        <button class="quantidade-btn" onclick="alterarQuantidade('Tênis Nike', 170, -1)">-</button>
+                        <span id="quantidade-Tênis Adidas">1</span>
+                        <button class="quantidade-btn" onclick="alterarQuantidade('Tênis Nike', 170, 1)">+</button>
+                        <button class="lixeira-btn" onclick="removerDoCarrinho('Tênis Nike')"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+                
+        </section>
+
+        <section id="carrinho" class="carrinho oculto">
+            <h2>Carrinho de Compras</h2>
+            <ul id="listaCarrinho"></ul>
+            <p id="totalCarrinho">Total: R$ 0,00</p>
+            <button onclick="finalizarCompra()">Finalizar Compra</button>
+            <button id="fecharCarrinho" onclick="fecharCarrinho()">Fechar</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
