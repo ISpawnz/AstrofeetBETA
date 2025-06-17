@@ -1,0 +1,49 @@
+<section id="produtos" class="page-section">
+    <aside class="sidebar-filtros">
+        <h3><i class="fas fa-filter"></i> Painel de Controle</h3>
+        <div class="search-container-sidebar">
+             <input type="text" id="search-input" placeholder="Buscar por constelações...">
+             <i class="fas fa-search search-icon"></i>
+        </div>
+        <div class="filtro-bloco">
+            <h4>Marcas</h4>
+            <div id="filtro-marcas"></div>
+        </div>
+        <div class="filtro-bloco">
+            <h4>Categorias</h4>
+            <div id="filtro-categorias"></div>
+        </div>
+        <div class="filtro-bloco">
+            <h4>Faixa de Preço</h4>
+            <div class="price-input">
+                <div class="field"><span>Min</span><input type="number" class="input-min" value="0"></div>
+                <div class="separator">-</div>
+                <div class="field"><span>Max</span><input type="number" class="input-max" value="500"></div>
+            </div>
+            <div class="slider"><div class="progress"></div></div>
+            <div class="range-input"><input type="range" class="range-min" min="0" max="500" value="0" step="10"><input type="range" class="range-max" min="0" max="500" value="500" step="10"></div>
+        </div>
+        <div class="filtro-bloco">
+            <h4>Tamanhos</h4>
+            <div id="filtro-tamanhos" class="size-selector"></div>
+        </div>
+        <button id="limpar-filtros-btn" class="cta-button secondary">Limpar Filtros</button>
+    </aside>
+    <div class="product-area">
+        <div class="toolbar">
+            <span id="product-count">Exibindo 0 produtos</span>
+            <div class="sort-container">
+                <label for="sort-by">Ordenar por:</label>
+                <div class="select-wrapper">
+                    <select id="sort-by">
+                        <option value="relevancia">Relevância</option>
+                        <option value="menor-preco">Menor Preço</option>
+                        <option value="maior-preco">Maior Preço</option>
+                        <option value="avaliacao">Mais Avaliados</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="grade-produtos" class="product-grid"></div>
+    </div>
+</section>

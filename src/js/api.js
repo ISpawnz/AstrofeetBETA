@@ -1,0 +1,8 @@
+export const todosOsProdutos = [
+    { id: "produto-adidas-1", nome: "Tênis Orion Runner", marca: "Adidas", preco: 279.99, descricao: "Feito com poeira de cometas, para velocidade máxima.", imagem: "img/tenis1.png", tamanhos: [38, 39, 40, 41, 42], categoria: "Corrida", avaliacao: 4.5 },
+    { id: "produto-nike-1", nome: "Nike Dunk Low 'Nebula'", marca: "Nike", descricao: "Caminhe nas nuvens de uma nebulosa distante.", preco: 349.90, imagem: "img/tinis2.avif", tamanhos: [39, 40, 42, 43], categoria: "Casual", avaliacao: 4.8 },
+    { id: "produto-puma-1", nome: "Puma 'Black Hole'", marca: "Puma", descricao: "Design minimalista e atraente como um buraco negro.", preco: 199.90, imagem: "img/tenis-puma-preto.png", tamanhos: [37, 38, 39, 40], categoria: "Skate", avaliacao: 4.2 },
+    { id: "produto-nike-2", nome: "Nike Air 'Meteor'", marca: "Nike", descricao: "Leve e rápido como um meteoro cruzando o céu.", preco: 450.00, imagem: "img/tenis-nike-air.png", tamanhos: [40, 41, 42, 43, 44], categoria: "Corrida", avaliacao: 4.9 },
+    { id: "produto-vans-1", nome: "Vans Old Skool 'Galaxy'", marca: "Vans", descricao: "O clássico agora com uma estampa de toda a galáxia.", preco: 320.50, imagem: "img/tenis-vans-galaxy.png", tamanhos: [36, 37, 38, 39, 40, 41], categoria: "Skate", avaliacao: 4.7 },
+    { id: "produto-adidas-2", nome: "Adidas 'Superstar' Cosmic", marca: "Adidas", descricao: "Um ícone renascido com detalhes cósmicos.", preco: 399.99, imagem: "img/tenis-adidas-superstar.png", tamanhos: [38, 39, 42], categoria: "Casual", avaliacao: 4.6 }
+];

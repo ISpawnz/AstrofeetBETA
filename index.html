@@ -3,94 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja de Tenis - Astrofeetbr</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+    <title>Astrofeet</title>
+    <link rel="stylesheet" href="src/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
-    <header>
-        <img src="img/logo.png" alt="logoAs HTML5">
-        <h1>Astrofeetbr</h1>
-        <nav>
-            <a href="#" id="homeBtn">Home</a>
-            <a href="#" id="produtosBtn">Produtos</a>
-            <a href="https://www.instagram.com/astrofeetbr/?igsh=cTg4emNydjNrc2to" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://wa.me/553183024952" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="#" id="carrinhoBtn">
-                <i class="fas fa-shopping-cart"></i> Carrinho
-            </a>
-        </nav>
-    </header>
-
-    <main>
-        <section id="home">
-            <h2>Bem-vindo à Astrofeetbr</h2>
-            <p></p>
-        </section>
-
-        <section id="produtos" class="oculto">
-            <div id="filtros-produtos" class="filtro-lateral">
-                <div class="filtro-container">
-                    <h3>Filtrar Produtos</h3>
-                    <label for="categoria">Categoria:</label>
-                    <select id="categoria">
-                        <option value="todas">Todas as categorias</option>
-                        <option value="Nike">Nike</option>
-                        <option value="Adidas">Adidas</option>
-                    </select>
-                    <label for="preco-maximo">Preço máximo:</label>
-                    <input type="number" id="preco-maximo" placeholder="Digite o valor">
-                    <button onclick="filtrarProdutos()">Aplicar Filtro</button>
-                </div>
+    <div id="overlay" class="overlay oculto"></div>
+    <div id="toast-container"></div>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="left-header">
+                <a href="#home"><img src="img/logo.png" alt="Logo Astrofeetbr" class="logo"></a>
+                <a href="#" class="login-btn"><i class="fas fa-user-astronaut"></i><span>Login</span></a>
             </div>
-            
-                </div>
-                <div class="produto" id="produto2" data-categoria="Adidas">
-                    <img src="img/tenis1.png"tenis da Adidas">
-                    <h3>Tênis Adidas</h3>
-                    <p>Descrição: Confortável e durável.</p>
-                    <p>Preço: R$ 150,00</p>
-                    <button onclick="adicionarAoCarrinho('Tênis Adidas', 150)">Adicionar ao Carrinho</button>
-                    <div class="controle-quantidade oculto">
-                        <button class="quantidade-btn" onclick="alterarQuantidade('Tênis Adidas', 170, -1)">-</button>
-                        <span id="quantidade-Tênis Adidas">1</span>
-                        <button class="quantidade-btn" onclick="alterarQuantidade('Tênis Adidas', 170, 1)">+</button>
-                        <button class="lixeira-btn" onclick="removerDoCarrinho('Tênis Adidas')"><i class="fas fa-trash"></i></button>
-                    </div>
-                </div>
-                <div class="produto" id="produto3" data-categoria="Nike">
-                    <img src="img/tinis2.avif"tenis da Adidas">
-                    <h3>Tênis Nike</h3>
-                    <p>Descrição: RRConfortável e durável. </p>
-                    <p>Preço: R$ 190,00</p>
-                    <button onclick="adicionarAoCarrinho('Tênis Adidas', 190)">Adicionar ao Carrinho</button>
-                    <div class="controle-quantidade oculto">
-                        <button class="quantidade-btn" onclick="alterarQuantidade('Tênis Nike', 170, -1)">-</button>
-                        <span id="quantidade-Tênis Adidas">1</span>
-                        <button class="quantidade-btn" onclick="alterarQuantidade('Tênis Nike', 170, 1)">+</button>
-                        <button class="lixeira-btn" onclick="removerDoCarrinho('Tênis Nike')"><i class="fas fa-trash"></i></button>
-                    </div>
-                </div>
-                
-        </section>
-
-        <section id="carrinho" class="carrinho oculto">
-            <h2>Carrinho de Compras</h2>
-            <ul id="listaCarrinho"></ul>
-            <p id="totalCarrinho">Total: R$ 0,00</p>
-            <button onclick="finalizarCompra()">Finalizar Compra</button>
-            <button id="fecharCarrinho" onclick="fecharCarrinho()">Fechar</button>
-        </section>
-    </main>
-
-    <script src="script.js"></script>
+            <a href="#home" class="store-name-link"><h1 class="store-name">Astrofeet</h1></a>
+            <nav class="main-nav">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#produtos" class="nav-link">Produtos</a>
+                <a href="https://www.instagram.com/astrofeetbr/" target="_blank" class="nav-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/553183024952" target="_blank" class="nav-link"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="nav-link cart-button" id="carrinhoBtn"><i class="fas fa-shopping-cart"></i><span id="cart-count">0</span></a>
+            </nav>
+        </div>
+    </header>
+    <main id="app-container"></main>
+    <aside id="carrinho" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Seu Foguete de Compras</h3>
+            <button id="fecharCarrinho" class="close-cart-btn">&times;</button>
+        </div>
+        <div id="listaCarrinho" class="cart-items">
+            <p class="cart-empty-message">Seu foguete está vazio.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="totalCarrinho">R$ 0,00</span>
+            </div>
+            <button id="finalizar-compra-btn" class="cta-button">Finalizar Compra</button>
+        </div>
+    </aside>
+    <div id="assistente-flutuante" class="floating-assistant">
+        <img src="img/nave.png" alt="Assistente Nave" class="assistant-ship-image">
+    </div>
+    <div id="modal-ajuda" class="help-modal oculto">
+        <div class="modal-content">
+            <button id="fechar-modal-ajuda" class="close-modal-btn">&times;</button>
+            <h4>Precisa de ajuda, viajante?</h4>
+            <p>Selecione um tópico para iniciar uma conversa no WhatsApp.</p>
+            <button class="help-option" data-message="Olá! Tenho uma dúvida sobre um pedido.">Dúvidas sobre Pedido</button>
+            <button class="help-option" data-message="Olá! Gostaria de saber mais sobre a entrega.">Informações de Entrega</button>
+            <button class="help-option" data-message="Olá! Preciso de ajuda para escolher um produto.">Ajuda para Comprar</button>
+            <button class="help-option" data-message="Olá! Quero falar sobre outros assuntos.">Outros Assuntos</button>
+        </div>
+    </div>
+    <footer class="main-footer">
+        <p>&copy; 2025 Astrofeet. Todos os direitos reservados. Feito com 💜 e poeira estelar.</p>
+    </footer>
+    <script type="module" src="src/js/main.js"></script>
 </body>
-
 </html>

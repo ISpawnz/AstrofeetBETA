@@ -1,0 +1,5 @@
+.cta-button { background: var(--cor-destaque); color: var(--cor-fundo); border: none; border-radius: 8px; padding: 0.9rem 1.5rem; font-family: var(--fonte-titulo); cursor: pointer; text-transform: uppercase; transition: all 0.3s ease; width: 100%; max-width: 300px; box-shadow: 0 4px 15px rgba(0, 242, 255, 0.2); }
+.cta-button:hover { background: var(--cor-destaque-hover); box-shadow: 0 6px 20px rgba(0, 242, 255, 0.3); transform: translateY(-2px); }
+.cta-button:disabled { background: #555; color: #999; cursor: not-allowed; }
+.cta-button.secondary { background: transparent; border: 1px solid var(--cor-borda); color: var(--cor-texto-principal); }
+.cta-button.secondary:hover { background: var(--cor-borda); }

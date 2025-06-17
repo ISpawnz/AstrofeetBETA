@@ -1,0 +1,40 @@
+<section class="page-section page-finalizar-pedido">
+    <header class="checkout-header">
+        <h1>Finalizar Pedido</h1>
+    </header>
+    <div class="container">
+        <div class="coluna-esquerda">
+            <section class="informacoes-entrega">
+                <h2>Informações de Entrega</h2>
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" required>
+                <label for="cep">CEP:</label>
+                <div class="calculo-frete">
+                    <input type="text" id="cep" placeholder="Digite seu CEP" required>
+                    <button class="botao-calcular">Calcular</button>
+                    <a href="#" class="link-cep">Não sei meu CEP</a>
+                </div>
+                <p id="valorFrete">Frete: R$ </p>
+            </section>
+            <section class="pagamento">
+                <h2>Pagamento</h2>
+                <div class="opcao-pagamento">
+                    <input type="radio" id="pix" name="metodoPagamento" value="pix">
+                    <label for="pix"><img src="img/pix.png" alt="Pix"> Pix</label>
+                </div>
+                <div class="opcao-pagamento">
+                    <input type="radio" id="cartao" name="metodoPagamento" value="cartao">
+                    <label for="cartao"><img src="img/cartao.png" alt="Cartão"> Cartão de Crédito</label>
+                </div>
+            </section>
+        </div>
+        <div class="coluna-direita">
+            <section class="detalhes-pedido">
+                <h2>Detalhes do Pedido</h2>
+                <div id="checkout-items"></div>
+                <div id="checkout-total"></div>
+                <button class="botao-finalizar">Finalizar Compra</button>
+            </section>
+        </div>
+    </div>
+</section>

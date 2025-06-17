@@ -1,0 +1,25 @@
+:root {
+    --cor-fundo: #0a0a1a;
+    --cor-fundo-secundaria: #1a1a3a;
+    --cor-borda: #4a4a7a;
+    --cor-texto-principal: #e0e0ff;
+    --cor-texto-secundario: #a0a0cc;
+    --cor-destaque: #00f2ff;
+    --cor-destaque-hover: #99faff;
+    --cor-glow: rgba(0, 242, 255, 0.5);
+    --fonte-titulo: 'Orbitron', sans-serif;
+    --fonte-corpo: 'Roboto', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: var(--fonte-corpo);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal);
+    background-image: url('../../img/fundo-geral.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    line-height: 1.6;
+}
+a { color: var(--cor-destaque); text-decoration: none; }
+.oculto { display: none !important; }
+.main-footer { text-align: center; padding: 2rem; margin-top: 2rem; background: var(--cor-fundo-secundaria); border-top: 1px solid var(--cor-borda); }
