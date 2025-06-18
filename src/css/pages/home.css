@@ -2,21 +2,39 @@
 .page-section { padding: 4rem 0; }
 
 #home .hero-banner {
+    position: relative;
+    overflow: hidden;
     text-align: center;
     padding: 4rem 1rem;
     border-radius: 15px;
     border: 1px solid var(--cor-borda);
-    position: relative;
+    background-color: rgba(10, 10, 26, 0.7);
+}
+
+#home .hero-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
     background: 
         linear-gradient(rgba(10, 10, 26, 0.7), rgba(10, 10, 26, 0.7)),
         url('../../../img/titulo.png');
-    background-size: cover;
-    background-position: center center;
+    background-size: 110%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: moveBackground 20s linear infinite;
+    border-radius: 15px;
 }
-
 #home .hero-banner > * {
     position: relative;
     z-index: 2;
+}
+@keyframes moveBackground {
+    0% { background-position: 50% 50%; }
+    25% { background-position: 70% 30%; }
+    50% { background-position: 30% 70%; }
+    75% { background-position: 60% 40%; }
+    100% { background-position: 50% 50%; }
 }
 
 #home h2 { font-family: var(--fonte-titulo); font-size: 3rem; margin-bottom: 1rem; text-shadow: 0 0 15px #000; }
