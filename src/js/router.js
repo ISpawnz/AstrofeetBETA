@@ -1,16 +1,30 @@
 const pageInitializers = {
-    'home': async () => (await import('./pages/home.js')).initHomePage(),
-    'produtos': async () => (await import('./pages/produtos.js')).initProductsPage(),
-    'finalizarpedido': async () => (await import('./pages/finalizarpedido.js')).initCheckoutPage(),
+    'home': {
+        init: async () => (await import('./pages/home.js')).initHomePage(),
+        cleanup: async () => (await import('./pages/home.js')).cleanupHomePage()
+    },
+    'produtos': {
+        init: async () => (await import('./pages/produtos.js')).initProductsPage()
+    },
+    'finalizarpedido': {
+        init: async () => (await import('./pages/finalizarpedido.js')).initCheckoutPage()
+    },
+    'login': {
+        init: async () => (await import('./pages/login.js')).initLoginPage()
+    },
 };
 
 const appContainer = document.getElementById('app-container');
+let currentPageCleanup = null;
 
 async function loadPage(page) {
+    if (currentPageCleanup) {
+        await currentPageCleanup();
+        currentPageCleanup = null;
+    }
+
     try {
-        // A CORREÇÃO ESTÁ AQUI: Removi a barra "/" do início do caminho.
         const response = await fetch(`src/pages/${page}.html`);
-        
         if (!response.ok) throw new Error(`Página não encontrada: ${page}.html`);
         const content = await response.text();
         appContainer.innerHTML = content;
@@ -19,8 +33,12 @@ async function loadPage(page) {
         const activeLink = document.querySelector(`.nav-link[href="#${page}"]`);
         if (activeLink) activeLink.classList.add('active');
 
-        if (pageInitializers[page]) {
-            await pageInitializers[page]();
+        const pageModule = pageInitializers[page];
+        if (pageModule && pageModule.init) {
+            await pageModule.init();
+        }
+        if (pageModule && pageModule.cleanup) {
+            currentPageCleanup = pageModule.cleanup;
         }
 
     } catch (error) {

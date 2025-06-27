@@ -14,9 +14,28 @@
 .cart-item-remove { background: none; border: none; color: #ff4d4d; cursor: pointer; font-size: 1.2rem; }
 .cart-footer { padding: 1rem; border-top: 1px solid var(--cor-borda); background: var(--cor-fundo-secundaria); }
 .cart-total { display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; }
-#toast-container { position: fixed; bottom: 20px; right: 20px; z-index: 2000; display: flex; flex-direction: column; gap: 10px; }
-.toast { background-color: var(--cor-destaque); color: var(--cor-fundo); padding: 1rem 1.5rem; border-radius: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); transform: translateX(120%); transition: transform 0.5s ease-in-out; }
-.toast.show { transform: translateX(0); }
+
+#toast-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.toast {
+    background-color: var(--cor-destaque);
+    color: var(--cor-fundo);
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transform: translateX(-120%);
+    transition: transform 0.5s ease-in-out;
+}
+.toast.show {
+    transform: translateX(0);
+}
 
 .floating-assistant {
     position: fixed;

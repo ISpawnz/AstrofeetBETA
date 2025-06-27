@@ -17,7 +17,7 @@
         <div class="header-content">
             <div class="left-header">
                 <a href="#home"><img src="img/logo.png" alt="Logo Astrofeetbr" class="logo"></a>
-                <a href="#" class="login-btn"><i class="fas fa-user-astronaut"></i><span>Login</span></a>
+                <a href="#" id="login-btn" class="login-btn"><i class="fas fa-user-astronaut"></i><span>Login</span></a>
             </div>
             <a href="#home" class="store-name-link"><h1 class="store-name">Astrofeet</h1></a>
             <nav class="main-nav">
@@ -30,6 +30,46 @@
         </div>
     </header>
     <main id="app-container"></main>
+
+    <div id="login-modal" class="login-modal-overlay oculto">
+        <div class="container" id="login-container">
+            <button id="close-login-modal" class="close-login-modal-btn">&times;</button>
+            <div class="form-container sign-up-container">
+                <form action="#">
+                    <h1>Criar Conta</h1>
+                    <div class="input-group"><input type="text" placeholder="Nome" /></div>
+                    <div class="input-group"><input type="email" placeholder="Email" /></div>
+                    <div class="input-group"><input type="password" placeholder="Senha" /></div>
+                    <button>Cadastrar</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="#">
+                    <h1>Fazer Login</h1>
+                    <div class="input-group"><input type="email" placeholder="Email" /></div>
+                    <div class="input-group"><input type="password" placeholder="Senha" /></div>
+                    <button>Entrar</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="celestial-body moon"></div>
+                    <div class="celestial-body sun"></div>
+                    <div class="overlay-panel overlay-left">
+                        <h2>Bem-vindo de volta!</h2>
+                        <p>Para se manter conectado com a gente, por favor, faça o login com suas informações</p>
+                        <button class="ghost" id="signIn">Fazer Login</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h2>Olá, Explorador!</h2>
+                        <p>Entre com seus dados e comece sua jornada pela galáxia da moda conosco</p>
+                        <button class="ghost" id="signUp">Criar Conta</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <aside id="carrinho" class="cart-sidebar">
         <div class="cart-header">
             <h3>Seu Foguete de Compras</h3>
@@ -65,8 +105,7 @@
         <div id="popup-main-content">
             <button id="close-promo-popup" class="close-promo-btn">&times;</button>
             <h3>Destaques da Galáxia</h3>
-            <div id="popup-product-carousel">
-            </div>
+            <div id="popup-product-carousel"></div>
             <a href="#produtos" id="promo-popup-cta" class="cta-button">Ver Todas as Ofertas</a>
         </div>
     </div>

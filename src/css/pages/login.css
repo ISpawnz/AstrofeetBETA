@@ -1,0 +1,266 @@
+.login-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.login-modal-overlay:not(.oculto) {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.close-login-modal-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--cor-texto-principal);
+    cursor: pointer;
+    z-index: 150;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.close-login-modal-btn:hover {
+    transform: scale(1.1);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.login-modal-overlay .container {
+    position: relative;
+    width: 100%;
+    max-width: 850px;
+    height: 500px;
+    border-radius: 25px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform: scale(0.9);
+    transition: transform 0.5s ease;
+}
+
+/* LÓGICA PARA FUNDOS DINÂMICOS COM NOVOS NOMES */
+.login-modal-overlay .container::before,
+.login-modal-overlay .container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.8s ease-in-out;
+    border-radius: 25px;
+    z-index: 0;
+}
+
+.login-modal-overlay .container::before {
+    background-image: url('../../../img/lua.jpg'); /* Imagem para Login (Noite) */
+    opacity: 1;
+}
+
+.login-modal-overlay .container::after {
+    background-image: url('../../../img/sol.jpg'); /* Imagem para Cadastro (Dia) */
+    opacity: 0;
+}
+
+.login-modal-overlay .container.right-panel-active::before {
+    opacity: 0;
+}
+
+.login-modal-overlay .container.right-panel-active::after {
+    opacity: 1;
+}
+
+
+.login-modal-overlay:not(.oculto) .container {
+    transform: scale(1);
+}
+
+.login-modal-overlay .form-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.6s ease-in-out;
+    background-color: rgba(10, 10, 26, 0.4);
+    backdrop-filter: blur(5px);
+    z-index: 5;
+}
+
+.login-modal-overlay form {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px;
+    width: 100%;
+    text-align: center;
+}
+
+.login-modal-overlay h1 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-texto-principal);
+    margin-bottom: 20px;
+}
+
+.login-modal-overlay .input-group {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin: 8px 0;
+    padding: 12px 15px;
+}
+
+.login-modal-overlay input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--cor-texto-principal);
+    font-size: 1rem;
+}
+.login-modal-overlay input::placeholder {
+    color: var(--cor-texto-secundario);
+}
+
+.login-modal-overlay button {
+    border-radius: 10px;
+    border: 1px solid var(--cor-destaque);
+    background: var(--cor-destaque);
+    color: var(--cor-fundo);
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 80ms ease-in, background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+}
+.login-modal-overlay button:active {
+    transform: scale(0.95);
+}
+
+.login-modal-overlay .overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.8s ease-in-out;
+    z-index: 100;
+}
+
+.login-modal-overlay .overlay {
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    background: linear-gradient(135deg, rgba(26, 26, 58, 0.5), rgba(0, 242, 255, 0.1));
+    backdrop-filter: blur(10px);
+    color: #fff;
+    transform: translateX(0);
+    transition: transform 0.8s ease-in-out, background 0.8s ease-in-out;
+}
+
+.login-modal-overlay .overlay-panel {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    transform: translateX(0);
+    transition: transform 0.8s ease-in-out;
+}
+.login-modal-overlay .overlay-panel h2 {
+    font-family: var(--fonte-titulo);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+.login-modal-overlay .overlay-panel p {
+    font-size: 1rem;
+    margin: 20px 0;
+    line-height: 1.5;
+}
+.login-modal-overlay .overlay-panel button.ghost {
+    background: transparent;
+    border-color: #fff;
+    color: #fff;
+}
+
+.login-modal-overlay .overlay-left { transform: translateX(-20%); }
+.login-modal-overlay .overlay-right { right: 0; transform: translateX(0); }
+
+.login-modal-overlay .celestial-body {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transition: all 0.8s ease-in-out;
+}
+.login-modal-overlay .moon {
+    --cor-lua: #e0e0ff;
+    background-color: var(--cor-lua);
+    box-shadow: 0 0 20px #fff, 0 0 40px var(--cor-lua), 0 0 60px var(--cor-fundo);
+    opacity: 1;
+}
+.login-modal-overlay .sun {
+    --cor-sol: #ffdd00;
+    background: radial-gradient(circle, #fff, #ffd700);
+    box-shadow: 0 0 30px var(--cor-sol), 0 0 60px #ff8c00;
+    opacity: 0;
+    transform: translateX(-50%) scale(0.5);
+}
+
+.login-modal-overlay .sign-up-container { left: 0; opacity: 0; z-index: 1; }
+.login-modal-overlay .sign-in-container { left: 0; z-index: 2; }
+
+.login-modal-overlay .container.right-panel-active .sign-in-container { transform: translateX(100%); opacity: 0; }
+.login-modal-overlay .container.right-panel-active .sign-up-container { transform: translateX(100%); opacity: 1; z-index: 5; animation: show 0.6s; }
+
+.login-modal-overlay .container.right-panel-active .overlay-container { transform: translateX(-100%); }
+.login-modal-overlay .container.right-panel-active .overlay { transform: translateX(50%); background: linear-gradient(135deg, rgba(255, 221, 0, 0.2), rgba(74, 122, 154, 0.5)); }
+
+.login-modal-overlay .container.right-panel-active .overlay-left { transform: translateX(0); }
+.login-modal-overlay .container.right-panel-active .overlay-right { transform: translateX(20%); }
+
+.login-modal-overlay .container.right-panel-active .moon { opacity: 0; transform: translateX(-50%) scale(0.5); }
+.login-modal-overlay .container.right-panel-active .sun { opacity: 1; transform: translateX(-50%) scale(1); }
+
+.login-modal-overlay .container.right-panel-active .form-container { background-color: rgba(163, 193, 212, 0.4); }
+
+.login-modal-overlay .container.right-panel-active form h1,
+.login-modal-overlay .container.right-panel-active form input { color: #1a1a3a; }
+.login-modal-overlay .container.right-panel-active form input::placeholder { color: rgba(10, 10, 26, 0.6); }
+.login-modal-overlay .container.right-panel-active form button { background-color: var(--cor-fundo); color: #fff; border-color: #fff; }
+
+@keyframes show {
+    0%, 49.99% { opacity: 0; z-index: 1; }
+    50%, 100% { opacity: 1; z-index: 5; }
+}

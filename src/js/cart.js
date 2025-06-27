@@ -57,13 +57,15 @@ export function addToCart(produtoId) {
     if (!produto) return;
     
     const itemExistente = carrinho.find(item => item.id === produtoId);
+    
     if (itemExistente) {
         itemExistente.quantidade++;
     } else {
         carrinho.push({ ...produto, quantidade: 1 });
+        openCart();
     }
+    
     showToast(`${produto.nome} adicionado à nave!`);
-    openCart();
     saveAndRender();
 }
 

@@ -1,6 +1,9 @@
 import { todosOsProdutos } from '../api.js';
+import { addToCart } from '../cart.js';
+import { createProductCard } from '../shared/productCard.js';
 
 let carouselInterval;
+let popupTimeout;
 
 function createPromoCarouselItem(produto) {
     const item = document.createElement('a');
@@ -45,11 +48,13 @@ function setupPromoPopup() {
     }
 
     const startCarousel = () => {
-        showSlide(currentIndex);
-        carouselInterval = setInterval(() => {
-            currentIndex = (currentIndex + 1) % slides.length;
+        if (slides.length > 0) {
             showSlide(currentIndex);
-        }, 3500);
+            carouselInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                showSlide(currentIndex);
+            }, 3500);
+        }
     };
 
     const stopCarousel = () => {
@@ -71,10 +76,52 @@ function setupPromoPopup() {
     viewAllButton.addEventListener('click', hidePopup);
 
     if (!sessionStorage.getItem('promoShown')) {
-        setTimeout(showPopup, 2000);
+        popupTimeout = setTimeout(showPopup, 2000);
     }
+}
+
+function populateDestaques() {
+    const gradeDestaques = document.getElementById('grade-destaques');
+    if (!gradeDestaques) return;
+
+    const produtosDestaque = todosOsProdutos.slice(0, 3);
+    gradeDestaques.innerHTML = '';
+    produtosDestaque.forEach(produto => {
+        gradeDestaques.appendChild(createProductCard(produto));
+    });
+
+    gradeDestaques.addEventListener('click', e => {
+        if (e.target.closest('.add-to-cart-btn')) {
+            const card = e.target.closest('.product-card');
+            if (card) {
+                addToCart(card.dataset.id);
+            }
+        }
+    });
+}
+
+function initScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(element => {
+        observer.observe(element);
+    });
 }
 
 export function initHomePage() {
     setupPromoPopup();
+    populateDestaques();
+    initScrollAnimations();
+}
+
+export function cleanupHomePage() {
+    clearTimeout(popupTimeout);
+    clearInterval(carouselInterval);
 }
